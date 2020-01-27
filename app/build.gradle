@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
 	compileSdkVersion versionCompiler
@@ -40,5 +42,8 @@ dependencies {
 	implementation "com.google.android.material:material:${androidXMaterial}"
 	implementation "androidx.constraintlayout:constraintlayout:${androidXConstraint}"
 
+	implementation "androidx.core:core-ktx:${androidXVersion}"
+	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${androidXLifecycleKtx}"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 	implementation "com.serenegiant:common:${commonLibVersion}"
 }

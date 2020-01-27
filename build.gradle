@@ -46,6 +46,7 @@ ext {
 	androidXExif = '1.0.0'
 	androidXLifecycle = '2.2.0'
 	androidXLifecycleExt = '2.1.0'
+	androidXLifecycleKtx = '2.2.0'
 	androidXMultiDex = '2.0.1'
 	androidXMaterial = '1.1.0-beta02'
 	androidXRecyclerview = '1.1.0-beta05'
