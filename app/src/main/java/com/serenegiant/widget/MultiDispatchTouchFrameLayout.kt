@@ -54,11 +54,17 @@ class MultiDispatchTouchFrameLayout
 					&& mWorkRect.contains(ev.x.toInt(), ev.y.toInt())
 					&& mDispatched[id, true]) {
 
-					// FIXME 子Viewのローカル座標系への変換が必要
 					// 子Viewが有効＆子ViewのhitRect内をタッチ&子Viewがイベントをハンドリングしているとき
+					// 子Viewのローカル座標系への変換してから子ViewのdispatchTouchEventを呼び出す
+					val offsetX: Float = scrollX - v.left.toFloat()
+					val offsetY: Float = scrollY - v.top.toFloat()
+					ev.offsetLocation(offsetX, offsetY)
+
 					val dispatched = v.dispatchTouchEvent(ev)
 					mDispatched.put(id, dispatched)
 					result = result or dispatched
+					// オフセットを元に戻す
+					ev.offsetLocation(-offsetX, -offsetY)
 				}
 			}
 			val action = ev.action
