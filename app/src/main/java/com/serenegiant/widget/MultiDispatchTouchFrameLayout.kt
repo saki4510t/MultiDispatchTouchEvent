@@ -61,9 +61,11 @@ class MultiDispatchTouchFrameLayout
 				}
 			}
 			val action = ev.action
-			if ((action == MotionEvent.ACTION_UP
-					|| action == MotionEvent.ACTION_CANCEL)
+			if ((!result
+					|| (action == MotionEvent.ACTION_UP)
+					|| (action == MotionEvent.ACTION_CANCEL))
 				&& ev.pointerCount == 1) {
+
 				mDispatched.clear()
 			}
 //			if (!result) {
@@ -74,6 +76,7 @@ class MultiDispatchTouchFrameLayout
 			if (DEBUG) Log.v(TAG, "dispatchTouchEvent:result=$result")
 			result
 		} else {
+			mDispatched.clear()
 			super.dispatchTouchEvent(ev)
 		}
 	}
