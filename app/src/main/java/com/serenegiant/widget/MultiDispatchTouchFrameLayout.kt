@@ -54,6 +54,7 @@ class MultiDispatchTouchFrameLayout
 					&& mWorkRect.contains(ev.x.toInt(), ev.y.toInt())
 					&& mDispatched[id, true]) {
 
+					// FIXME 子Viewのローカル座標系への変換が必要
 					// 子Viewが有効＆子ViewのhitRect内をタッチ&子Viewがイベントをハンドリングしているとき
 					val dispatched = v.dispatchTouchEvent(ev)
 					mDispatched.put(id, dispatched)
