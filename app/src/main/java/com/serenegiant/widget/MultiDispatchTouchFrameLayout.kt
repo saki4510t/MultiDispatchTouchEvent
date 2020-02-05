@@ -67,7 +67,7 @@ class MultiDispatchTouchFrameLayout
 					ev.offsetLocation(-offsetX, -offsetY)
 				}
 			}
-			val action = ev.action
+			val action = ev.actionMasked
 			if ((!result
 					|| (action == MotionEvent.ACTION_UP)
 					|| (action == MotionEvent.ACTION_CANCEL))
